@@ -2,7 +2,7 @@ using LivrariaCDC.WebAPI.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace LivrariaCDC.WebAPI.Controllers;
+namespace LivrariaCDC.WebAPI.Authors;
 
 [ApiController]
 [Route("[controller]")]
@@ -20,7 +20,7 @@ public class AuthorController : ControllerBase
     public async Task<IActionResult> Post(NewAuthorRequest newAuthor) // 1
     {
         // 1
-        if(await _context.Authors.AnyAsync(author => author.Email == newAuthor.Email)) // 1
+        if (await _context.Authors.AnyAsync(author => author.Email == newAuthor.Email)) // 1
             return BadRequest("E-mail already exists");
 
         await _context.AddAsync(newAuthor.ToModel());

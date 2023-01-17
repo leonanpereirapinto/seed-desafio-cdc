@@ -1,4 +1,4 @@
-﻿using LivrariaCDC.WebAPI.Entities;
+﻿using LivrariaCDC.WebAPI.Authors;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -28,5 +28,9 @@ public class AuthorMapping : IEntityTypeConfiguration<Author>
         builder
             .Property(p => p.CreatedAt)
             .IsRequired();
+
+        builder
+            .HasIndex(p => p.Email)
+            .IsUnique();
     }
 }

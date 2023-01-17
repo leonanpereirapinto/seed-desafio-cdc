@@ -1,4 +1,4 @@
-﻿namespace LivrariaCDC.WebAPI.Entities;
+﻿namespace LivrariaCDC.WebAPI.Authors;
 
 public class Author
 {
