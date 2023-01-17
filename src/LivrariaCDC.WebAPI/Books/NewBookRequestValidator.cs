@@ -12,7 +12,7 @@ public class NewBookRequestValidator : AbstractValidator<NewBookRequest>
             .Must(title => !context.Books.Any(b => b.Title == title))
             .WithMessage("Title already exists");
 
-        RuleFor(a => a.Resume)
+        RuleFor(a => a.Summary)
             .MaximumLength(500);
 
         RuleFor(a => a.Price)

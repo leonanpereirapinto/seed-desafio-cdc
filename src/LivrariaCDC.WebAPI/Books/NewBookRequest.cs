@@ -3,8 +3,8 @@
 public class NewBookRequest
 {
     public string? Title { get; set; }
-    public string? Resume { get; set; }
     public string? Summary { get; set; }
+    public string? Indice { get; set; }
     public decimal? Price { get; set; }
     public int? Pages { get; set; }
     public string? Isbn { get; set; }
@@ -14,8 +14,8 @@ public class NewBookRequest
 
     public Book ToModel() => new (
         Title!,
-        Resume!,
         Summary!,
+        Indice!,
         Price!.Value,
         Pages!.Value,
         Isbn!,
