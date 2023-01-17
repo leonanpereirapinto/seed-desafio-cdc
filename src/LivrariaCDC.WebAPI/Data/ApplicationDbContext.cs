@@ -1,4 +1,5 @@
 ﻿using LivrariaCDC.WebAPI.Authors;
+using LivrariaCDC.WebAPI.Books;
 using LivrariaCDC.WebAPI.Categories;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Author> Authors { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<Book> Books { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
