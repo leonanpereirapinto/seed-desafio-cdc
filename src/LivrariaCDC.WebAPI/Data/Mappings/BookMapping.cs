@@ -15,7 +15,7 @@ public class BookMapping : IEntityTypeConfiguration<Book>
         builder.Property(b => b.Title)
             .IsRequired();
 
-        builder.Property(b => b.Resume)
+        builder.Property(b => b.Summary)
             .HasMaxLength(500)
             .IsRequired();
 
