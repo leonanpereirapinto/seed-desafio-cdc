@@ -16,6 +16,10 @@ public class CategoryMapping : IEntityTypeConfiguration<Category>
             .Property(p => p.Name)
             .IsRequired();
 
+        builder.HasMany(c => c.Books)
+            .WithOne(b => b.Category)
+            .HasForeignKey(b => b.CategoryId);
+
         builder
             .HasIndex(p => p.Name)
             .IsUnique();

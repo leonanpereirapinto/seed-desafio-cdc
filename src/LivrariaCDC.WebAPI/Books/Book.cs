@@ -30,4 +30,9 @@ public class Book : Entity
         CategoryId = category;
         AuthorId = author;
     }
+
+    private Book()
+    {
+
+    }
 }

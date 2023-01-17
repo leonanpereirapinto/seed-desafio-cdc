@@ -19,7 +19,7 @@ public class NewBookRequestValidator : AbstractValidator<NewBookRequest>
             .NotEmpty()
             .GreaterThan(20);
 
-        RuleFor(a => a.Price)
+        RuleFor(a => a.Pages)
             .NotEmpty()
             .GreaterThan(100);
 
@@ -34,12 +34,12 @@ public class NewBookRequestValidator : AbstractValidator<NewBookRequest>
 
         RuleFor(a => a.CategoryId)
             .NotEmpty()
-            .Must(id => !context.Categories.Any(c => c.Id == id))
+            .Must(id => context.Categories.Any(c => c.Id == id))
             .WithMessage("Category not found");
 
         RuleFor(a => a.AuthorId)
             .NotEmpty()
-            .Must(id => !context.Authors.Any(a => a.Id == id))
+            .Must(id => context.Authors.Any(a => a.Id == id))
             .WithMessage("Author not found");
     }
 }
