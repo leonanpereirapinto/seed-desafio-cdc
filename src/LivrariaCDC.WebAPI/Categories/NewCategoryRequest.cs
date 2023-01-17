@@ -9,6 +9,6 @@ public class NewCategoryRequest
 
     public Category ToModel()
     {
-        return new Category(Name);
+        return new Category(Name!);
     }
 }

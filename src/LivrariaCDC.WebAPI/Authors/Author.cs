@@ -1,18 +1,17 @@
-﻿namespace LivrariaCDC.WebAPI.Authors;
+﻿using LivrariaCDC.WebAPI.Common;
 
-public class Author
+namespace LivrariaCDC.WebAPI.Authors;
+
+public class Author : Entity
 {
     public Author(string name, string email, string description)
     {
-        // TODO: validations
-        Id = Guid.NewGuid();
         CreatedAt = DateTime.Now;
         Name = name;
         Email = email;
         Description = description;
     }
 
-    public Guid Id { get; private set; }
     public DateTime CreatedAt { get; private set; }
     public string Name { get; private set; }
     public string Email { get; private set; }

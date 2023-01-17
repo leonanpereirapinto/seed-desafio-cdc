@@ -1,13 +1,13 @@
-﻿namespace LivrariaCDC.WebAPI.Categories;
+﻿using LivrariaCDC.WebAPI.Common;
 
-public class Category
+namespace LivrariaCDC.WebAPI.Categories;
+
+public class Category : Entity
 {
-    public Guid Id { get; private set; }
     public string Name { get; private set; }
 
     public Category(string name)
     {
-        Id = Guid.NewGuid();
         Name = name;
     }
 }
