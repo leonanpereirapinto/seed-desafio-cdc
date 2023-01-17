@@ -6,7 +6,7 @@ namespace LivrariaCDC.WebAPI.Categories;
 
 [ApiController]
 [Route("[controller]")]
-// 3
+// 1
 public class CategoryController : ControllerBase
 {
     private readonly ApplicationDbContext _context;
@@ -16,13 +16,9 @@ public class CategoryController : ControllerBase
         _context = context;
     }
 
-    [HttpPost(Name = "PostAuthor")]
+    [HttpPost(Name = "PostCategory")]
     public async Task<IActionResult> Post(NewCategoryRequest newCategory) // 1
     {
-        // 1
-        if (await _context.Categories.AnyAsync(author => author.Name == newCategory.Name)) // 1
-            return BadRequest("Category already exists");
-
         await _context.AddAsync(newCategory.ToModel());
         await _context.SaveChangesAsync();
         return Ok();

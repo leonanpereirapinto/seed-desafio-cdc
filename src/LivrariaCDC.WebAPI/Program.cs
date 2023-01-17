@@ -1,4 +1,7 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using LivrariaCDC.WebAPI.Data;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddFluentValidationAutoValidation(s => s.DisableDataAnnotationsValidation = true);
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
